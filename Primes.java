@@ -22,9 +22,16 @@ public class Primes {
             }
         }
 
+        int count = 0;
         // Print all prime numbers
         for (int i = 2; i <= n; i++) {
-            if (prime[i] == true)
+            if (prime[i] == true){
                 System.out.println(i + " ");
-        }    }
+                count++;
+            }
+        }  
+        double percentage = (count * 100.0) / (n - 1);
+        System.out.printf("There are %d primes between 2 and %d (%.0f%% are primes)%n", count, n, percentage);
+
+    }
 }
