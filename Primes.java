@@ -1,6 +1,5 @@
 public class Primes {
     public static void main(String[] args) {
-        int n = 100;
         // Create a boolean array "prime[0..n]" and
         // initialize all entries it as true. A value in
         // prime[i] will finally be false if i is Not a
