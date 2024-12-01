@@ -4,6 +4,7 @@ public class Primes {
         // initialize all entries it as true. A value in
         // prime[i] will finally be false if i is Not a
         // prime, else true.
+        int n = Integer.parseInt(args[0]);
         boolean prime[] = new boolean[n + 1];
         for (int i = 0; i <= n; i++)
             prime[i] = true;
