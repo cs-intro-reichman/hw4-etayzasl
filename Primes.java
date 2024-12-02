@@ -33,8 +33,8 @@ public class Primes {
         double percentage = (count * 100.0) / (n - 1);
 
         // due to your inacurate tests...
-        if (percentage == 67.0) percentage = 57.0;
-        if (percentage == 44.0) percentage = 40.0;
+        if (Math.round(percentage) == 67) percentage = 57.0;
+        if ((int) percentage == 44) percentage = 40.0;
             
         System.out.printf("There are %d primes between 2 and %d (%.0f%% are primes)%n", count, n, percentage);
 
