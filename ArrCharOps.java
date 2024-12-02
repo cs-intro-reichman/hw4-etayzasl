@@ -2,26 +2,20 @@
  *  The library also features a string comparison method. */
 public class ArrCharOps {
     public static void main(String[] args) {
-        String str = "clearly";
-        char[] arr1 = {'c','l','e','a','r','l','y'};
-        char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
-        System.out.println(str);  // Prints the string
-        println(arr1);            // Prints an array of characters
-        System.out.println(charAt(arr1,2));      
-        System.out.println(indexOf(arr1,'l'));  
-        System.out.println(indexOf(arr1,'l',3)); 
-        System.out.println(lastIndexOf(arr1, 'l'));
-        System.out.println(concat(arr1, arr2));
-        System.out.println(subArray(arr2, 2, 9));
-        System.out.println(compareTo("abcd", "abcd"));
-        System.out.println(compareTo("abc", "abcd"));
-        System.out.println(compareTo("abw", "abcd"));
-        System.out.println(compareTo("Abcd", "a"));
-        System.out.println(compareTo("apple", "banana"));
-        System.out.println(compareTo("apple", "applepie"));
-        System.out.println(compareTo("Zoo", "zoo"));
-        System.out.println(hashCode(arr1));
-        System.out.println(hashCode(arr2));
+
+        System.out.println(compareTo("abc", "abc")); //0
+        System.out.println(compareTo("abc", "aBc")); // 1
+        System.out.println(compareTo("abc", "abcd")); // -1
+        System.out.println(compareTo("abc", "")); // -2
+
+        char[] arr1 = {'a'};
+        char[] arr2 = "lemon".toCharArray();
+        char[] arr3 = {};
+
+        System.out.println(ArrCharOps.hashCode(arr1));// 97;
+        System.out.println(ArrCharOps.hashCode(arr2));// 300179;
+        System.out.println(ArrCharOps.hashCode(arr3));// 0;
+
     }
 
     /** Prints the given array of characters, and moves the cursor to the next line.
@@ -125,7 +119,7 @@ public class ArrCharOps {
     public static long hashCode(char[] arr) {
         long hash = 0;
         for (int i = 0; i < arr.length; i++) {
-            hash = (long) Math.pow(arr[i]*7, arr.length - i) + hash; 
+            hash = (long) (arr[i] * Math.pow(7, arr.length - 1 - i)) + hash; 
         }
         return hash;
     }
@@ -165,6 +159,11 @@ public class ArrCharOps {
             } else if (str1.charAt(i) > str2.charAt(i)) {
                 return 1;
             }
+        }
+        if(str1.length() < str2.length()) {
+            return -1;
+        } else if (str1.length() > str2.length()) {
+            return 1;
         }
         return 0;
     }
